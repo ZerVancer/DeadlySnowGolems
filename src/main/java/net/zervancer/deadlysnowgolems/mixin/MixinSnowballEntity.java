@@ -9,7 +9,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.world.World;
 
-import net.zervancer.deadlysnowgolems.DeadlySnowGolems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
@@ -35,6 +34,6 @@ public class MixinSnowballEntity extends ThrownItemEntity {
 	}
 	@ModifyConstant(method = "onEntityHit(Lnet/minecraft/util/hit/EntityHitResult;)V", constant = @Constant(intValue = 0))
     private int injected(int value) {
-        return this.getOwner() instanceof SnowGolemEntity ? DeadlySnowGolems.CONFIG.dmgSnowBall() : 0;
+        return this.getOwner() instanceof SnowGolemEntity ? 1 : 0;
     }
 }

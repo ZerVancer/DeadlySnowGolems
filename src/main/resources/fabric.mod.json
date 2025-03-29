@@ -12,7 +12,7 @@
 		"issues": "https://github.com/ZerVancer/DeadlySnowGolem/issues"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/deadly-snow-golems/DeadlySnowGolemsIcon.png",
+	"icon": "assets/deadly-snow-golems/DeadlySnowGolemIcon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
