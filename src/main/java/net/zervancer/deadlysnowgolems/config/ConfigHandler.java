@@ -11,22 +11,23 @@ import com.google.gson.stream.JsonReader;
 
 import net.fabricmc.loader.api.FabricLoader;
 
+import net.zervancer.deadlysnowgolems.DeadlySnowGolems;
+
 public class ConfigHandler {
     private static File configFolder = FabricLoader.getInstance().getConfigDir().toFile();
-    private static File configFile = new File(configFolder, "deadly-snow-golem.json");
+    private static File configFile = new File(configFolder, "deadly-snow-golems.json");
     private static Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
+    public static ConfigSettings CONFIG;
 
-    
-    public static ConfigSettings readConfig() {
+    private static void readConfig() {
         try {
             JsonReader reader = new JsonReader(new FileReader(configFile));
             ConfigSettings configSettings = gson.fromJson(reader, ConfigSettings.class);
             reader.close();
-            return configSettings;
+            CONFIG = configSettings;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
     private static void createConfig() {
@@ -40,7 +41,12 @@ public class ConfigHandler {
     }
 
     public static void init() {
-        if (configFile.exists()) { readConfig(); }
-        else { createConfig(); }
+        if (!configFile.exists()) { createConfig(); }
+        readConfig();
+    }
+
+    public static int getDefaultDMG() {
+        if (DeadlySnowGolems.isYACLPresent()) { return YACLIntegration.getConfig().defaultDMG; }
+        return CONFIG.defaultDMG;
     }
 }

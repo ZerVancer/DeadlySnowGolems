@@ -34,7 +34,6 @@ public class MixinSnowballEntity extends ThrownItemEntity {
 	}
 	@ModifyConstant(method = "onEntityHit(Lnet/minecraft/util/hit/EntityHitResult;)V", constant = @Constant(intValue = 0))
     private int injected(int value) {
-		ConfigSettings configSettings = ConfigHandler.readConfig();
-        return this.getOwner() instanceof SnowGolemEntity ? configSettings.defaultDMG : 0;
+        return this.getOwner() instanceof SnowGolemEntity ? ConfigHandler.getDefaultDMG() : 0;
     }
 }

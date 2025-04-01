@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
 	"id": "deadly-snow-golems",
-	"version": "${version}",
+	"version": "1.1.1",
 	"name": "Deadly Snow Golems",
-	"description": "The SnowGolem now deals damage to all entities!",
+	"description": "Snow Golems now deals damage to all entities!",
 	"authors": [
 		"ZerVancer!"
 	],
@@ -12,11 +12,14 @@
 		"issues": "https://github.com/ZerVancer/DeadlySnowGolem/issues"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/deadly-snow-golems/DeadlySnowGolemIcon.png",
+	"icon": "assets/deadly-snow-golems/DeadlySnowGolemsIcon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			"net.zervancer.deadlysnowgolems.DeadlySnowGolems"
+		],
+		"modmenu": [ 
+			"net.zervancer.deadlysnowgolems.config.ModMenuIntegration" 
 		]
 	},
 	"mixins": [
